@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        ndk { abiFilters "armeabi" }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+//    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    //fragmentations
+//    api 'me.yokeyword:fragmentation-core:1.1.10'
+//    api 'me.yokeyword:fragmentation:1.1.10'
+    api 'me.yokeyword:fragmentationx-core:1.0.2'
+    api 'me.yokeyword:fragmentationx:1.0.2'
+
+    //kalle
+    api 'com.yanzhenjie:kalle:0.1.7'
+    api 'com.yanzhenjie:okalle:0.1.7'
+
+    //noHttp
+    api 'com.yanzhenjie.nohttp:nohttp:1.1.3'
+    api 'com.yanzhenjie.nohttp:okhttp:1.1.3'
+    //rxJava
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'io.reactivex.rxjava2:rxjava:2.1.3'
+    //guava
+    api 'com.google.guava:guava:23.0-android'
+    api 'com.google.code.findbugs:jsr305:3.0.0'
+    //butterknife
+    //noinspection GradleDependency
+    api 'com.jakewharton:butterknife:10.0.0'  //  this
+
+    //noinspection GradleDependency
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'  //  this
+    //ptr-load
+    api 'in.srain.cube:ptr-load-more:1.0.6'
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.0'
+
+
+//    //日期选择控件
+    api ('com.github.codbking:PickTime:v1.0.1') {
+        exclude group: 'com.android.support', module:'appcompat-v7'
+    }
+    api 'com.contrarywind:Android-PickerView:4.1.6'
+    api 'com.github.zcweng:switch-button:0.0.3@aar'
+
+    //通用Toasty提示
+    api 'com.github.hss01248:Toasty:2.0.6'
+
+    api 'com.lzy.net:okgo:3.0.4'
+
+    //腾讯x5内核Sdk
+    api 'com.tencent.tbs.tbssdk:sdk:43939'
+
+}
